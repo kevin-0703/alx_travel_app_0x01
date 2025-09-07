@@ -14,14 +14,14 @@ from pathlib import Path
 import environ
 import os
 
+
+# Build paths inside the project like this: BASE_DIR / 'subdir'.
+BASE_DIR = Path(__file__).resolve().parent.parent
+
 env = environ.Env(
     DEBUG=(bool, False)
 )
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
@@ -88,11 +88,11 @@ WSGI_APPLICATION = "alx_travel_app.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "alx_travel_app",
+        "NAME": env("alx_travel_app"),
         "USER": env("alxtravelappadmin"),
         "PASSWORD": env("alxtravelapp"),
-        "HOST": "localhost",
-        "PORT": "3306",
+        "HOST": env("localhost"),
+        "PORT": env("3306"),
     }
 }
 
