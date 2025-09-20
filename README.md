@@ -1,0 +1,1 @@
+this project is a series of on going alx ProDev Backend projects. it is done incrementaly in series and this series consists of creating models, serializers and a seeding script to populate the database.
